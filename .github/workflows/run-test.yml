@@ -20,13 +20,16 @@ jobs:
             - name: Checkout code
               uses: actions/checkout@v3
 
+              # setup python dengan versi yang sesuai
             - name: Set Up Python
               uses: actions/setup-python@v4
               with:
                 python-version: '3.11.11'
-
+                
+            # lokasi file pastikan sesuai
             - name: Install dependencies
               run: pip install -r requirements.txt
             
+              # lokasi file yang sesuai
             - name: Run test
               run: pytest test-app.py
