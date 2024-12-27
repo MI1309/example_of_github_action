@@ -1,0 +1,32 @@
+# nama Konfigurasi 
+name: run Tests
+
+# branch github
+on: 
+    push: 
+        branches: 
+            - main
+
+# tugas yang di lakukan
+jobs:
+    # test
+    test:
+        # test di server ubuntu
+        runs-on: ubuntu-latest
+
+        # langkah
+        steps:
+            # sub judul perlangkah
+            - name: Checkout code
+              uses: actions/checkout@v3
+
+            - name: Set Up Python
+              uses: actions/setup-python@v4
+              with:
+                python-version: '3.11'
+
+            - name: Install dependencies
+              run: pip install -r requirements.txt
+            
+            - name: Run test
+              run: pytest
